@@ -1,0 +1,81 @@
+CHAPTER 4 EXERCISES
+
+from TurtleWorld import *
+
+world = TurtleWorld()
+bob = Turtle()
+print bob
+
+fd(bob,100)
+lt(bob)
+fd(bob,100)
+lt(bob)
+fd(bob,100)
+lt(bob)
+fd(bob,100)
+
+for i in range(4):
+	print 'Hello!'
+
+for i in range(4):
+	fd(bob,100)
+	lt(bob)
+
+Exercises 4.3:
+
+1) Square Function
+
+def square(t):
+	for i in range(4):
+		fd(t,100)
+		lt(t)
+
+square(bob)
+
+2) Square Function With Length
+
+def square(t,length):
+	for i in range(4):
+		fd(t,length)
+		lt(t)
+
+square(bob,100)
+square(bob,50)
+
+3) Polygon
+
+def polygon(t,length,n):
+	for i in range(n):
+		fd(t,length)
+		lt(t,360/n)
+
+polygon(bob,50,5)
+
+4) Circle
+
+def circle(t,r):
+	t.delay = 0.01
+	c = 2.0*3.14159*r
+	n = 100
+	length = c/n
+	for i in range(n):
+		fd(t,length)
+		lt(t,360.0/n)
+
+circle(bob,50)
+
+5) Arc
+
+def arc(t,r,a):
+	t.delay = 0.01
+	c = 2.0*3.14159*r
+	arc = c*a/360
+	n = int(arc/3)+1
+	length = arc/n
+	for i in range(n):
+		fd(t,length)
+		lt(t,float(a)/n)
+
+arc(bob,50,30)
+
+

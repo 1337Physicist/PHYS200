@@ -78,4 +78,51 @@ def arc(t,r,a):
 
 arc(bob,50,30)
 
+Exercises 4.1
 
+1) Docstrings
+
+def polygon(t,length,n):
+	"""Draw a polygon with n sides of given length. t is a turtle."""
+	for i in range(n):
+		fd(t,length)
+		lt(t,360/n)
+
+def arc(t,r,a):
+	"""Draw an a degree arc with radius r. t is a turtle."""
+	t.delay = 0.01
+	c = 2.0*3.14159*r
+	arc = c*a/360
+	n = int(arc/3)+1
+	length = arc/n
+	for i in range(n):
+		fd(t,length)
+		lt(t,float(a)/n)
+
+def circle(t,r):
+	"""Draw a circle of radius r. t is a turtle."""
+	t.delay = 0.01
+	c = 2.0*3.14159*r
+	n = 100
+	length = c/n
+	for i in range(n):
+		fd(t,length)
+		lt(t,360.0/n)
+
+2) Stack Diagram
+
+3) Arc/Polyline
+def polyline(t, n, length, angle): 	"""Draw n line segments with the given length and angle (in degrees) between them. t is a turtle. """ 	for i in range(n):
+		fd(t, length) lt(t, angle)
+ 
+def arc(t, r, angle):
+    arc_length = 2 * math.pi * r * abs(angle) / 360
+    n = int(arc_length / 4) + 1
+    step_length = arc_length / n
+    step_angle = float(angle) / n
+
+    # making a slight left turn before the polyline reduces
+    # the error caused by the linear approximation of the arc
+    lt(t, step_angle/2)
+    polyline(t, n, step_length, step_angle)
+    rt(t, step_angle/2)

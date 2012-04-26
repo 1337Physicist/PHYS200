@@ -1,0 +1,43 @@
+Chapter 5 Exercises
+
+Exercise 5.3
+
+from TurtleWorld import *
+world = TurtleWorld()
+bob = Turtle()
+print bob
+
+def draw(t, length, n): 
+    if n==0:
+        return 
+    angle = 50
+    fd(t, length*n) 
+    lt(t, angle) 
+    draw(t, length, n-1) 
+    rt(t, 2*angle) 
+    draw(t, length, n-1) 
+    lt(t, angle)
+    bk(t, length*n)
+
+Exercise 5.4
+
+def koch(t,length):
+	if length<3:
+		fd(t,length)
+		return
+	x = length/3.0
+	koch(t,x)
+	lt(t,60)
+	koch(t,x)
+	rt(t,120)
+	koch(t,x)
+	lt(t,60)
+	koch(t,x)
+
+def snowflake(t,n):
+	for i in range(3):
+		koch(t,n)
+		rt(t,120)
+
+koch(bob,300)
+snowflake(bob,300)

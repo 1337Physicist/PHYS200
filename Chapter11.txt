@@ -1,0 +1,17 @@
+Chapter 11 Exercises
+
+Exercise 11.1
+
+dict = dict()
+dict = {}
+fin = open('words.txt')
+def dictionary():
+	i = 0
+	n = 0
+	for line in fin:
+		word = line.strip()
+		dict[i] = word
+		i+= 1
+	return dict
+
+dictionary()
